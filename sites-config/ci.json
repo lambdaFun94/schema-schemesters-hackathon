@@ -34,7 +34,7 @@
     ]
   },
   "buildArtifacts": {
-    "buildCmd": "npm run build:local"
+    "buildCmd": "npx pages build"
   },
   "livePreview": {
     "serveSetupCmd": ":"
