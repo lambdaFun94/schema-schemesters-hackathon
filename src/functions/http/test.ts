@@ -1,14 +1,10 @@
-import { generate } from "../../utilities/openAIClient"
 
 export default function helloWorld(request) {
-    const { pathParams, queryParams, site, body } = request
-
-    const output = generate("Write a database schema for a hotel")
+    const { body, method, pathParams, queryParams, site } = request
 
     return {
-        body: output,
+        body: { body, method, pathParams, queryParams, site },
         headers: null,
         statusCode: 200
     }
 }
-
