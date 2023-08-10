@@ -101,14 +101,7 @@ const LayoutFlow = ({ schema }: LayoutFlowProps) => {
         });
       });
     setEdges((eds) => initialEdges);
-    // setEdges((eds) => initialEdges);
   }, []);
-
-  // useEffect(() => {
-  //   if (nodes.length && edges.length) {
-  //     onLayout("LR");
-  //   }
-  // }, [edges]);
 
   const onLayout = useCallback(
     (direction) => {
@@ -139,6 +132,25 @@ const LayoutFlow = ({ schema }: LayoutFlowProps) => {
         nodeTypes={nodeTypes}
         fitView
       >
+        <Panel
+          style={{
+            borderRadius: "9999px",
+            backgroundColor: "#4f46e5",
+            paddingLeft: "1rem",
+            paddingRight: "1rem",
+            paddingTop: "0.5rem",
+            paddingBottom: "0.5rem",
+            fontSize: "0.75rem",
+            fontWeight: "600",
+            color: "#fff",
+            boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+            cursor: "pointer",
+          }}
+          position="top-left"
+          onClick={() => onLayout("LR")}
+        >
+          Balance Graph
+        </Panel>
         <Panel
           style={{
             borderRadius: "9999px",
