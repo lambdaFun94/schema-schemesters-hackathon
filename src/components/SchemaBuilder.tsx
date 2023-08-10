@@ -5,24 +5,28 @@ import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { GridLoader } from "react-spinners";
 
-const baseUrl = "https://7knfl6mzoc-81463-d.preview.pagescdn.com/api";
+export const baseUrl = "https://urbanely-safe-asp.pgsdemo.com/api";
+
+type Table = {
+  name: string;
+  columns: {
+    name: string;
+    type: string;
+    description: string;
+  }[];
+  primary_key?: string;
+  foreign_keys?: {
+    name: string;
+    column: string;
+    references: {
+      table: string;
+      column: string;
+    };
+  }[];
+};
 
 export type JSONSchema = {
-  properties: Record<string, Property>;
-  required?: string[];
-};
-
-type Property = {
-  type: "integer" | "string" | "number" | "array" | "object";
-  description: string;
-  items?: Items;
-  properties?: Record<string, Property>;
-};
-
-type Items = {
-  type: "integer" | "string" | "number" | "array" | "object";
-  description?: string;
-  properties?: Record<string, Property>;
+  tables: Table[];
 };
 
 const generateSchema = async (prompt: string): Promise<JSONSchema> => {
