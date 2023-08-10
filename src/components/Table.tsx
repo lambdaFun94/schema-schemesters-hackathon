@@ -22,7 +22,7 @@ function Table<T>({ columnNames, rowData, renderRow }: TableProps<T>) {
           ))}
         </tr>
       </thead>
-      <tbody className="bg-white">
+      <tbody className="bg-white ">
         {rowData.map((item, index) => renderRow(item, index))}
       </tbody>
     </table>
